@@ -11,7 +11,10 @@ const config: Config = {
       colors: {
         "mainBackgroundColor": '#0D1117',
         "columnBackgroundColor": '#161C22'
-      }
+      },
+      minHeight: {
+        custom: 'calc(100vh - 84px)',
+      },
     },
   },
   plugins: [],

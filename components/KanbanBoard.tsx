@@ -1,5 +1,4 @@
 "use client"
-
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useMemo, useState } from "react";
 import { Column, Id, Task } from "../types";
@@ -37,69 +36,21 @@ const defaultTasks: Task[] = [
     {
         id: "1",
         columnId: "todo",
-        content: "List admin APIs for dashboard",
+        content: "task to do",
     },
+
     {
         id: "2",
-        columnId: "todo",
-        content:
-            "Develop user registration functionality with OTP delivered on SMS after email confirmation and phone number confirmation",
+        columnId: "doing",
+        content: "task in progress",
     },
     {
         id: "3",
-        columnId: "doing",
-        content: "Conduct security testing",
-    },
-    {
-        id: "4",
-        columnId: "doing",
-        content: "Analyze competitors",
-    },
-    {
-        id: "5",
         columnId: "done",
-        content: "Create UI kit documentation",
+        content: "task done",
     },
-    {
-        id: "6",
-        columnId: "done",
-        content: "Dev meeting",
-    },
-    {
-        id: "7",
-        columnId: "done",
-        content: "Deliver dashboard prototype",
-    },
-    {
-        id: "8",
-        columnId: "todo",
-        content: "Optimize application performance",
-    },
-    {
-        id: "9",
-        columnId: "todo",
-        content: "Implement data validation",
-    },
-    {
-        id: "10",
-        columnId: "todo",
-        content: "Design database schema",
-    },
-    {
-        id: "11",
-        columnId: "todo",
-        content: "Integrate SSL web certificates into workflow",
-    },
-    {
-        id: "12",
-        columnId: "doing",
-        content: "Implement error logging and monitoring",
-    },
-    {
-        id: "13",
-        columnId: "doing",
-        content: "Design and implement responsive UI",
-    },
+
+
 ];
 
 function KanbanBoard() {
@@ -121,15 +72,15 @@ function KanbanBoard() {
     );
 
     return (
-        <div className="m-auto flex min-h-screen w-full items-center overflow-x-auto overflow-y-hidden px-[40px]">
+        <div className="m-auto flex min-h-custom w-full items-center overflow-x-auto overflow-y-hidden px-[40px]">
             <DndContext
                 sensors={sensors}
                 onDragStart={onDragStart}
                 onDragEnd={onDragEnd}
                 onDragOver={onDragOver}
             >
-                <div className="m-auto flex gap-4">
-                    <div className="flex gap-4">
+                <div className="m-auto flex gap-4 my-4">
+                    <div className="flex gap-4 flex-wrap items-center">
                         <SortableContext items={columnsId}>
                             {columns.map((col) => (
                                 <ColumnContainer

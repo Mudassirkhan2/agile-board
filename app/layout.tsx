@@ -1,22 +1,27 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import NextAuthProvider from "./Providers.js"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Kanban Board',
-  description: 'Kanban Board for managing tasks',
-}
+  title: "Kanban Board",
+  description: "Kanban Board is a simple kanban board app built with Next.js by Mudasir Khan",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NextAuthProvider>
+          {children}
+        </NextAuthProvider>
+      </body>
     </html>
-  )
+  );
 }

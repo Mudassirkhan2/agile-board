@@ -3,11 +3,11 @@
 import Image from 'next/image'
 import React from 'react'
 import logoGoogle from '../public/assets/logo-google.svg'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 
 const Login = () => {
     const handleSignIn = async () => {
-        signIn('google', { callbackUrl: 'http://localhost:3000/blogs/createpost' })
+        signIn('google', { callbackUrl: 'http://localhost:3000/' })
     };
     return (
         <div className='flex justify-center items-center bg-[#2980b9] w-screen h-screen'>
