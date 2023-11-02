@@ -12,7 +12,7 @@ export default function Home() {
     router.push('/login');
   }
   return (
-    <main>
+    <main className='bg-white dark:bg-black'>
       <Navbar />
       <KanbanBoard />
     </main>

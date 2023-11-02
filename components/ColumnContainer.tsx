@@ -61,11 +61,11 @@ function ColumnContainer({
     }
 
     return (
-        <div ref={setNodeRef} style={style} className="bg-columnBackgroundColor w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col">
+        <div ref={setNodeRef} style={style} className="bg-columnBackgroundColor  w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col">
             {/* Column title */}
-            <div {...attributes} {...listeners} onClick={() => { setEditMode(true); }} className="bg-mainBackgroundColor text-md h-[60px] cursor-grab rounded-md rounded-b-none p-3 font-bold border-columnBackgroundColor border-4 flex items-center justify-between">
-                <div className="flex gap-2">
-                    <div className="flex justify-center items-center bg-columnBackgroundColor px-2 py-1 text-sm rounded-full">
+            <div {...attributes} {...listeners} onClick={() => { setEditMode(true); }} className=" dark:bg-mainBackgroundColor  border-b-2 bg-[#f3f6ff] text-md h-[60px] cursor-grab rounded-md rounded-b-none p-3 font-bold  dark:border-columnBackgroundColor  text dark:border-4  flex items-center justify-between">
+                <div className="flex gap-2 text-gray-800 dark:text-white">
+                    <div className="flex justify-center items-center text-white bg-columnBackgroundColor px-2 py-1 text-sm rounded-full">
                         0
                     </div>
                     {!editMode && column.title}
@@ -73,13 +73,13 @@ function ColumnContainer({
                         <input className="bg-black focus:border-rose-500 border rounded outline-none px-2" value={column.title} onChange={(e) => updateColumn(column.id, e.target.value)} autoFocus onBlur={() => { setEditMode(false); }} onKeyDown={(e) => { if (e.key !== "Enter") return; setEditMode(false); }} />
                     )}
                 </div>
-                <button onClick={() => { deleteColumn(column.id); }} className="stroke-gray-500 hover:stroke-white hover:bg-columnBackgroundColor rounded px-1 py-2">
+                <button onClick={() => { deleteColumn(column.id); }} className="stroke-gray-500 text-slate-800 dark:text-white hover:stroke-white hover:text-red-600 dark:hover:bg-columnBackgroundColor rounded px-1 py-2">
                     <BsTrash3Fill />
                 </button>
             </div>
 
             {/* Column task container */}
-            <div className="flex flex-grow flex-col gap-4 p-2 overflow-x-hidden overflow-y-auto">
+            <div className="flex flex-grow flex-col gap-4 p-2 overflow-x-hidden overflow-y-auto bg-[#f3f6ff] dark:bg-columnBackgroundColor">
                 <SortableContext items={tasksIds}>
                     {tasks.map((task) => (
                         <TaskCard key={task.id} task={task} deleteTask={deleteTask} updateTask={updateTask} />
@@ -87,7 +87,7 @@ function ColumnContainer({
                 </SortableContext>
             </div>
             {/* Column footer */}
-            <button className="flex gap-2 items-center border-columnBackgroundColor border-2 rounded-md p-4 border-x-columnBackgroundColor hover:bg-mainBackgroundColor hover:text-rose-500 active:bg-black" onClick={() => { createTask(column.id); }}>
+            <button className="flex gap-2 items-center bg-[#dfe2f5] dark:bg-columnBackgroundColor text-black dark:text-white dark:border-columnBackgroundColor border-2 rounded-md p-4 border-x-columnBackgroundColor hover:bg-mainBackgroundColor hover:text-rose-500 active:bg-black" onClick={() => { createTask(column.id); }}>
                 <AiOutlinePlusCircle />
                 Add task
             </button>
