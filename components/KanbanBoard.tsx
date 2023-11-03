@@ -72,15 +72,15 @@ function KanbanBoard() {
     );
 
     return (
-        <div className="m-auto flex min-h-custom w-full items-center overflow-x-auto overflow-y-hidden px-[40px]">
+        <div className="m-auto flex min-h-custom w-full items-center overflow-x-auto overflow-y-hidden md:px-[40px]">
             <DndContext
                 sensors={sensors}
                 onDragStart={onDragStart}
                 onDragEnd={onDragEnd}
                 onDragOver={onDragOver}
             >
-                <div className="m-auto flex gap-4 my-4">
-                    <div className="flex gap-4 flex-wrap items-center">
+                <div className="m-auto flex gap-4 my-4 flex-col md:flex-row">
+                    <div className="flex gap-4 flex-wrap items-center  justify-center">
                         <SortableContext items={columnsId}>
                             {columns.map((col) => (
                                 <ColumnContainer
@@ -100,7 +100,7 @@ function KanbanBoard() {
                         onClick={() => {
                             createNewColumn();
                         }}
-                        className="h-[60px] w-[350px] min-w-[350px] cursor-pointer rounded-lg bg-mainBackgroundColor border-2 border-columnBackgroundColor p-4 ring-teal-500 hover:ring-2 flex items-center gap-2">
+                        className="h-[60px] w-[350px] min-w-[350px] cursor-pointer rounded-lg bg-mainBackgroundColor border-2 border-columnBackgroundColor p-4 ring-teal-500 hover:ring-2 flex items-center gap-2 mx-auto">
                         <AiOutlinePlusCircle />
                         Add Column
                     </button>
